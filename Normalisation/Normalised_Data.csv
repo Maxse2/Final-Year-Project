@@ -1,0 +1,364 @@
+event_id,event_timestamp,hostname,ip_address,event_type,message,source,service,pid
+SYSTEMD-LOGIND_OTHER,2026-01-27T16:59:30.983438+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T16:59:30.985525+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T16:59:30.986642+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T16:59:30.989874+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,1040
+POLKITD_OTHER,2026-01-27T16:59:31.107103+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,1027
+POLKITD_OTHER,2026-01-27T16:59:31.107627+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,1027
+POLKITD_OTHER,2026-01-27T16:59:31.138576+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,1027
+POLKITD_OTHER,2026-01-27T16:59:31.140363+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,1027
+USERADD_OTHER,2026-01-27T16:59:33.208218+00:00,Ubuntu,,OTHER,"new group: name=vboxuser, GID=1000",linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.208553+00:00,Ubuntu,,OTHER,"new user: name=vboxuser, UID=1000, GID=1000, home=/home/vboxuser, shell=/bin/bash, from=none",linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209626+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'adm',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209672+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'cdrom',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209689+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'sudo',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209702+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'dip',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209715+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'plugdev',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209733+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'users',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209746+00:00,Ubuntu,,OTHER,add 'vboxuser' to group 'lpadmin',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209758+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'adm',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209771+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'cdrom',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209783+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'sudo',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209795+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'dip',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209808+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'plugdev',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209821+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'users',linux_auth,useradd,1474
+USERADD_OTHER,2026-01-27T16:59:33.209835+00:00,Ubuntu,,OTHER,add 'vboxuser' to shadow group 'lpadmin',linux_auth,useradd,1474
+PASSWD_OTHER,2026-01-27T16:59:33.278193+00:00,Ubuntu,,OTHER,password for 'vboxuser' changed by 'root',linux_auth,passwd,1511
+PASSWD_OTHER,2026-01-27T16:59:33.289748+00:00,Ubuntu,,OTHER,password for 'root' changed by 'root',linux_auth,passwd,1548
+SYSTEMD-LOGIND_OTHER,2026-01-27T16:59:35.563857+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,1040
+POLKITD_OTHER,2026-01-27T16:59:37.707210+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.42 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,1027
+CRON_OTHER,2026-01-27T17:05:01.136625+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2500
+CRON_OTHER,2026-01-27T17:05:01.140128+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2500
+DBUS-DAEMON_OTHER,2026-01-27T17:11:02.919933+00:00,Ubuntu,,OTHER,[system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms),linux_auth,dbus-daemon,1008
+CRON_OTHER,2026-01-27T17:15:06.028381+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2574
+CRON_OTHER,2026-01-27T17:15:06.032241+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2574
+CRON_OTHER,2026-01-27T17:17:15.718861+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2578
+CRON_OTHER,2026-01-27T17:17:15.722451+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2578
+CRON_OTHER,2026-01-27T17:25:01.657763+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2587
+CRON_OTHER,2026-01-27T17:25:01.662508+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2587
+CRON_OTHER,2026-01-27T17:30:02.282539+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2593
+CRON_OTHER,2026-01-27T17:30:02.284397+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2593
+CRON_OTHER,2026-01-27T17:35:06.827429+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2603
+CRON_OTHER,2026-01-27T17:35:06.832590+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2603
+CRON_OTHER,2026-01-27T17:45:02.353880+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2612
+CRON_OTHER,2026-01-27T17:45:02.358344+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2612
+CRON_OTHER,2026-01-27T17:55:04.620027+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,2623
+CRON_OTHER,2026-01-27T17:55:04.624494+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,2623
+CRON_OTHER,2026-01-27T18:05:03.341656+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,3033
+CRON_OTHER,2026-01-27T18:05:03.345710+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,3033
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:06:24.941178+00:00,Ubuntu,,OTHER,New session 11 of user vboxuser.,linux_auth,systemd-logind,1040
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:06:25.787116+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,3086
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:06:25.787379+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,3365
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:06:25.811890+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,3371
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:06:25.812207+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,3086
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:06:25.812243+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,3378
+POLKITD_OTHER,2026-01-27T18:06:27.263729+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:11 (system bus name :1.89 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,1027
+POLKITD_OTHER,2026-01-27T18:06:27.786958+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.42, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,1027
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:06:27.793414+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:06:27.798116+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,1040
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:13:50.051696+00:00,Ubuntu,,OTHER,couldn't initialize slot with master password: The password or PIN is incorrect,linux_auth,gnome-keyring-daemon,3086
+USERADD_OTHER,2026-01-27T18:14:58.963212+00:00,Ubuntu,,OTHER,"new user: name=sshd, UID=122, GID=65534, home=/run/sshd, shell=/usr/sbin/nologin, from=none",linux_auth,useradd,5316
+CRON_OTHER,2026-01-27T18:15:01.213549+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5649
+CRON_OTHER,2026-01-27T18:15:01.218227+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5649
+PKEXEC_OTHER,2026-01-27T18:16:36.426132+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,5688
+CRON_OTHER,2026-01-27T18:17:02.914293+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5869
+CRON_OTHER,2026-01-27T18:17:02.917345+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5869
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:22.220770+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:22.247286+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,1040
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:58.396840+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:58.396843+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:58.396847+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:58.396849+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,949
+POLKITD_OTHER,2026-01-27T18:19:58.460386+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,938
+POLKITD_OTHER,2026-01-27T18:19:58.464769+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,938
+POLKITD_OTHER,2026-01-27T18:19:58.532427+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,938
+POLKITD_OTHER,2026-01-27T18:19:58.548132+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,938
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:19:59.469702+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,949
+POLKITD_OTHER,2026-01-27T18:20:02.326163+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.38 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,938
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:20:09.867766+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,949
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:20:10.739903+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1868
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:20:10.741470+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2070
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:20:10.918529+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1868
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:20:10.918912+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2076
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:20:10.919188+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2078
+POLKITD_OTHER,2026-01-27T18:20:12.676199+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.80 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,938
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:20:13.066795+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:20:13.086045+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,949
+POLKITD_OTHER,2026-01-27T18:20:13.126798+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.38, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,938
+PKEXEC_OTHER,2026-01-27T18:21:02.002419+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,3100
+POLKITD_OTHER,2026-01-27T18:21:21.529721+00:00,Ubuntu,,OTHER,"Identity `unix-group:admin' is not valid, ignoring: No UNIX group with name admin: No such file or directory",linux_auth,polkitd,938
+POLKITD_OTHER,2026-01-27T18:21:23.645033+00:00,Ubuntu,,OTHER,Operator of unix-session:2 successfully authenticated as unix-user:vboxuser to gain TEMPORARY authorization for action org.gnome.controlcenter.user-accounts.administration for unix-process:3116:9124 [/usr/bin/gnome-control-center] (owned by unix-user:vboxuser),linux_auth,polkitd,938
+GROUPADD_OTHER,2026-01-27T18:22:12.301013+00:00,Ubuntu,,OTHER,"group added to /etc/group: name=max, GID=1001",linux_auth,groupadd,3327
+GROUPADD_OTHER,2026-01-27T18:22:12.326977+00:00,Ubuntu,,OTHER,group added to /etc/gshadow: name=max,linux_auth,groupadd,3327
+GROUPADD_OTHER,2026-01-27T18:22:12.329460+00:00,Ubuntu,,OTHER,"new group: name=max, GID=1001",linux_auth,groupadd,3327
+USERADD_OTHER,2026-01-27T18:22:12.356288+00:00,Ubuntu,,OTHER,"new user: name=max, UID=1001, GID=1001, home=/home/max, shell=/bin/bash, from=none",linux_auth,useradd,3334
+CHFN_OTHER,2026-01-27T18:22:12.467574+00:00,Ubuntu,,OTHER,changed user 'max' information,linux_auth,chfn,3347
+GPASSWD_OTHER,2026-01-27T18:22:12.550056+00:00,Ubuntu,,OTHER,"members of group users set by root to vboxuser,max",linux_auth,gpasswd,3355
+USERMOD_OTHER,2026-01-27T18:22:12.655709+00:00,Ubuntu,,OTHER,add 'max' to group 'sudo',linux_auth,usermod,3363
+USERMOD_OTHER,2026-01-27T18:22:12.655770+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'sudo',linux_auth,usermod,3363
+USERMOD_OTHER,2026-01-27T18:22:12.766610+00:00,Ubuntu,,OTHER,add 'max' to group 'adm',linux_auth,usermod,3372
+USERMOD_OTHER,2026-01-27T18:22:12.766664+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'adm',linux_auth,usermod,3372
+USERMOD_OTHER,2026-01-27T18:22:12.878525+00:00,Ubuntu,,OTHER,add 'max' to group 'cdrom',linux_auth,usermod,3381
+USERMOD_OTHER,2026-01-27T18:22:12.878587+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'cdrom',linux_auth,usermod,3381
+USERMOD_OTHER,2026-01-27T18:22:12.999621+00:00,Ubuntu,,OTHER,add 'max' to group 'dip',linux_auth,usermod,3390
+USERMOD_OTHER,2026-01-27T18:22:12.999692+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'dip',linux_auth,usermod,3390
+USERMOD_OTHER,2026-01-27T18:22:13.175621+00:00,Ubuntu,,OTHER,add 'max' to group 'lpadmin',linux_auth,usermod,3399
+USERMOD_OTHER,2026-01-27T18:22:13.175671+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'lpadmin',linux_auth,usermod,3399
+USERMOD_OTHER,2026-01-27T18:22:13.300393+00:00,Ubuntu,,OTHER,add 'max' to group 'plugdev',linux_auth,usermod,3408
+USERMOD_OTHER,2026-01-27T18:22:13.300445+00:00,Ubuntu,,OTHER,add 'max' to shadow group 'plugdev',linux_auth,usermod,3408
+DBUS-DAEMON_OTHER,2026-01-27T18:22:45.022528+00:00,Ubuntu,,OTHER,[system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms),linux_auth,dbus-daemon,892
+SSHD_OTHER,2026-01-27T18:23:36.656487+00:00,Ubuntu,0.0.0.0,OTHER,Server listening on 0.0.0.0 port 22.,linux_auth,sshd,3573
+SSHD_OTHER,2026-01-27T18:23:36.656555+00:00,Ubuntu,,OTHER,Server listening on :: port 22.,linux_auth,sshd,3573
+SSHD_SUCCESSFUL_LOGIN,2026-01-27T18:23:58.380641+00:00,Ubuntu,192.168.0.95,SUCCESSFUL_LOGIN,Accepted password for max from 192.168.0.95 port 58778 ssh2,linux_auth,sshd,3575
+SSHD_OTHER,2026-01-27T18:23:58.383065+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session opened for user max(uid=1001) by max(uid=0),linux_auth,sshd,3575
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:23:58.439419+00:00,Ubuntu,,OTHER,New session 4 of user max.,linux_auth,systemd-logind,949
+CRON_OTHER,2026-01-27T18:25:04.457744+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,4002
+CRON_OTHER,2026-01-27T18:25:04.461631+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,4002
+SSHD_OTHER,2026-01-27T18:25:33.084213+00:00,Ubuntu,192.168.0.95,OTHER,Received disconnect from 192.168.0.95 port 58778:11: disconnected by user,linux_auth,sshd,3708
+SSHD_OTHER,2026-01-27T18:25:33.084310+00:00,Ubuntu,192.168.0.95,OTHER,Disconnected from user max 192.168.0.95 port 58778,linux_auth,sshd,3708
+SSHD_OTHER,2026-01-27T18:25:33.084809+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session closed for user max,linux_auth,sshd,3575
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:25:33.088094+00:00,Ubuntu,,OTHER,Session 4 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:25:33.091177+00:00,Ubuntu,,OTHER,Removed session 4.,linux_auth,systemd-logind,949
+SSHD_SUCCESSFUL_LOGIN,2026-01-27T18:27:02.238152+00:00,Ubuntu,192.168.0.95,SUCCESSFUL_LOGIN,Accepted password for max from 192.168.0.95 port 63796 ssh2,linux_auth,sshd,4159
+SSHD_OTHER,2026-01-27T18:27:02.240023+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session opened for user max(uid=1001) by max(uid=0),linux_auth,sshd,4159
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:27:02.331066+00:00,Ubuntu,,OTHER,New session 7 of user max.,linux_auth,systemd-logind,949
+SSHD_OTHER,2026-01-27T18:29:45.983854+00:00,Ubuntu,192.168.0.95,OTHER,Received disconnect from 192.168.0.95 port 63796:11: disconnected by user,linux_auth,sshd,4279
+SSHD_OTHER,2026-01-27T18:29:45.983911+00:00,Ubuntu,192.168.0.95,OTHER,Disconnected from user max 192.168.0.95 port 63796,linux_auth,sshd,4279
+SSHD_OTHER,2026-01-27T18:29:45.983979+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session closed for user max,linux_auth,sshd,4159
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:29:45.988992+00:00,Ubuntu,,OTHER,Session 7 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,949
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:29:45.990916+00:00,Ubuntu,,OTHER,Removed session 7.,linux_auth,systemd-logind,949
+CRON_OTHER,2026-01-27T18:30:01.251853+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,4622
+CRON_OTHER,2026-01-27T18:30:01.254436+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,4622
+SSHD_OTHER,2026-01-27T18:34:33.929410+00:00,Ubuntu,192.168.0.95,OTHER,pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.0.95  user=max,linux_auth,sshd,4742
+SSHD_FAILED_LOGIN,2026-01-27T18:34:36.167101+00:00,Ubuntu,192.168.0.95,FAILED_LOGIN,Failed password for max from 192.168.0.95 port 57278 ssh2,linux_auth,sshd,4742
+SSHD_FAILED_LOGIN,2026-01-27T18:34:46.821033+00:00,Ubuntu,192.168.0.95,FAILED_LOGIN,Failed password for max from 192.168.0.95 port 57278 ssh2,linux_auth,sshd,4742
+SSHD_FAILED_LOGIN,2026-01-27T18:34:50.417400+00:00,Ubuntu,192.168.0.95,FAILED_LOGIN,Failed password for max from 192.168.0.95 port 57278 ssh2,linux_auth,sshd,4742
+SSHD_OTHER,2026-01-27T18:34:54.020538+00:00,Ubuntu,192.168.0.95,OTHER,Connection reset by authenticating user max 192.168.0.95 port 57278 [preauth],linux_auth,sshd,4742
+SSHD_OTHER,2026-01-27T18:34:54.026030+00:00,Ubuntu,192.168.0.95,OTHER,PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.0.95  user=max,linux_auth,sshd,4742
+CRON_OTHER,2026-01-27T18:35:04.326656+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,4763
+CRON_OTHER,2026-01-27T18:35:04.343489+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,4763
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:38:28.219883+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,895
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:38:28.219884+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,895
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:38:28.219940+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,895
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:38:28.219942+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,895
+POLKITD_OTHER,2026-01-27T18:38:28.383304+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,873
+POLKITD_OTHER,2026-01-27T18:38:28.388747+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,873
+POLKITD_OTHER,2026-01-27T18:38:28.481936+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,873
+POLKITD_OTHER,2026-01-27T18:38:28.509724+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,873
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:38:29.776296+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,895
+POLKITD_OTHER,2026-01-27T18:38:32.771063+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.44 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,873
+CRON_OTHER,2026-01-27T18:45:03.331607+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,1840
+CRON_OTHER,2026-01-27T18:45:03.335685+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,1840
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:52:38.211050+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,895
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:52:38.276587+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,895
+POLKITD_OTHER,2026-01-27T18:52:38.375793+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.44, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,873
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:19.619384+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,924
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:19.619385+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,924
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:19.619386+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,924
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:19.619387+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,924
+POLKITD_OTHER,2026-01-27T18:55:19.728955+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,888
+POLKITD_OTHER,2026-01-27T18:55:19.733318+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,888
+POLKITD_OTHER,2026-01-27T18:55:19.786388+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,888
+POLKITD_OTHER,2026-01-27T18:55:19.806058+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,888
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:20.841747+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,924
+POLKITD_OTHER,2026-01-27T18:55:23.743313+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.39 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,888
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:28.966274+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,924
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:55:29.805770+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1844
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:55:29.806138+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2066
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:55:29.825456+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1844
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:55:29.825732+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2071
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:55:29.825879+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2073
+POLKITD_OTHER,2026-01-27T18:55:31.525259+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.81 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,888
+POLKITD_OTHER,2026-01-27T18:55:32.842170+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.39, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,888
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:32.842907+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,924
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:55:32.846057+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,924
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:45.696096+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:45.696097+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:45.696098+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:45.696110+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,908
+POLKITD_OTHER,2026-01-27T18:56:45.694963+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,893
+POLKITD_OTHER,2026-01-27T18:56:45.695468+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,893
+POLKITD_OTHER,2026-01-27T18:56:45.743749+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,893
+POLKITD_OTHER,2026-01-27T18:56:45.756018+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,893
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:46.649158+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,908
+POLKITD_OTHER,2026-01-27T18:56:49.153700+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.45 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,893
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:56:59.128527+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,908
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:57:00.093383+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1859
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:57:00.093794+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2069
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:57:00.098259+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1859
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:57:00.098393+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2073
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T18:57:00.098757+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2076
+POLKITD_OTHER,2026-01-27T18:57:01.663871+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.82 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,893
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:57:02.107325+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,908
+POLKITD_OTHER,2026-01-27T18:57:02.108166+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.45, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,893
+SYSTEMD-LOGIND_OTHER,2026-01-27T18:57:02.111767+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,908
+PKEXEC_OTHER,2026-01-27T18:57:54.200716+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,2993
+SYSTEMD-LOGIND_OTHER,2026-01-27T19:00:14.639951+00:00,Ubuntu,,OTHER,Power key pressed short.,linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T19:00:14.648440+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T19:00:14.661289+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,908
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:10.629600+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:10.629603+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:10.629604+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:10.629606+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,939
+POLKITD_OTHER,2026-01-27T22:27:10.670845+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,930
+POLKITD_OTHER,2026-01-27T22:27:10.673627+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,930
+POLKITD_OTHER,2026-01-27T22:27:10.728132+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,930
+POLKITD_OTHER,2026-01-27T22:27:10.770205+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,930
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:11.625885+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,939
+POLKITD_OTHER,2026-01-27T22:27:14.216848+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,930
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:25.312258+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,939
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:27:26.129551+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1846
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:27:26.130119+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2070
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:27:26.136249+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2075
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:27:26.137410+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1846
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:27:26.137918+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2079
+POLKITD_OTHER,2026-01-27T22:27:27.794930+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.82 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,930
+POLKITD_OTHER,2026-01-27T22:27:28.340668+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.40, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,930
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:28.341455+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:27:28.350481+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,939
+SSHD_OTHER,2026-01-27T22:28:12.481672+00:00,Ubuntu,0.0.0.0,OTHER,Server listening on 0.0.0.0 port 22.,linux_auth,sshd,2920
+SSHD_OTHER,2026-01-27T22:28:12.481787+00:00,Ubuntu,,OTHER,Server listening on :: port 22.,linux_auth,sshd,2920
+SSHD_SUCCESSFUL_LOGIN,2026-01-27T22:28:16.387137+00:00,Ubuntu,192.168.0.95,SUCCESSFUL_LOGIN,Accepted password for max from 192.168.0.95 port 59404 ssh2,linux_auth,sshd,2922
+SSHD_OTHER,2026-01-27T22:28:16.389235+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session opened for user max(uid=1001) by max(uid=0),linux_auth,sshd,2922
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:28:16.404293+00:00,Ubuntu,,OTHER,New session 4 of user max.,linux_auth,systemd-logind,939
+PKEXEC_OTHER,2026-01-27T22:28:18.449236+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,3173
+SSHD_OTHER,2026-01-27T22:29:12.477806+00:00,Ubuntu,192.168.0.95,OTHER,Received disconnect from 192.168.0.95 port 59404:11: disconnected by user,linux_auth,sshd,3115
+SSHD_OTHER,2026-01-27T22:29:12.477916+00:00,Ubuntu,192.168.0.95,OTHER,Disconnected from user max 192.168.0.95 port 59404,linux_auth,sshd,3115
+SSHD_OTHER,2026-01-27T22:29:12.478106+00:00,Ubuntu,,OTHER,pam_unix(sshd:session): session closed for user max,linux_auth,sshd,2922
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:29:12.483329+00:00,Ubuntu,,OTHER,Session 4 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:29:12.485257+00:00,Ubuntu,,OTHER,Removed session 4.,linux_auth,systemd-logind,939
+CRON_OTHER,2026-01-27T22:30:02.857621+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,3339
+CRON_OTHER,2026-01-27T22:30:02.859701+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,3339
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:31:14.723348+00:00,Ubuntu,,OTHER,Power key pressed short.,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:31:14.732533+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:31:14.746658+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,939
+SYSTEMD-LOGIND_OTHER,                                                                                                                        2026-01-27T22:32:03.626518+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:03.626519+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:03.626521+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:03.626522+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,932
+POLKITD_OTHER,2026-01-27T22:32:03.671786+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,911
+POLKITD_OTHER,2026-01-27T22:32:03.673298+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,911
+POLKITD_OTHER,2026-01-27T22:32:03.736621+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,911
+POLKITD_OTHER,2026-01-27T22:32:03.747297+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,911
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:04.636868+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,932
+POLKITD_OTHER,2026-01-27T22:32:07.210308+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,911
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:20.899382+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,932
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:32:21.641997+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1846
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:32:21.642283+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2049
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:32:21.647566+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1846
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:32:21.647615+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2056
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:32:21.647963+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2052
+POLKITD_OTHER,2026-01-27T22:32:23.157552+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.82 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,911
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:23.553326+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:23.602566+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,932
+POLKITD_OTHER,2026-01-27T22:32:23.611937+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.40, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,911
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:32.027611+00:00,Ubuntu,,OTHER,Power key pressed short.,linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:32.041485+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:32:32.056585+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,932
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:09.963240+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,948
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:09.963251+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,948
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:09.963253+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,948
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:09.963255+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,948
+POLKITD_OTHER,2026-01-27T22:33:09.977194+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,933
+POLKITD_OTHER,2026-01-27T22:33:09.979745+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,933
+POLKITD_OTHER,2026-01-27T22:33:10.036460+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,933
+POLKITD_OTHER,2026-01-27T22:33:10.046611+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,933
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:10.942431+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,948
+POLKITD_OTHER,2026-01-27T22:33:13.152387+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.40 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,933
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:18.722541+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,948
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:33:19.542442+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1868
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:33:19.554968+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1868
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:33:19.555213+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2084
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:33:19.555394+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2085
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:33:19.555952+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2086
+POLKITD_OTHER,2026-01-27T22:33:21.154932+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.82 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,933
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:21.635325+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,948
+POLKITD_OTHER,2026-01-27T22:33:21.638361+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.40, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,933
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:33:21.667583+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,948
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:28.193625+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,1014
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:28.210648+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,1014
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:28.210744+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,1014
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:28.224200+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,1014
+POLKITD_OTHER,2026-01-27T22:34:28.407806+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,1002
+POLKITD_OTHER,2026-01-27T22:34:28.410078+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,1002
+POLKITD_OTHER,2026-01-27T22:34:28.515199+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,1002
+POLKITD_OTHER,2026-01-27T22:34:28.539732+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,1002
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:29.945971+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,1014
+POLKITD_OTHER,2026-01-27T22:34:34.312446+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.48 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,1002
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:41.919007+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,1014
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:34:43.164764+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1955
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:34:43.165386+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2166
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:34:43.187051+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1955
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:34:43.187180+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2173
+GNOME-KEYRING-DAEMON_OTHER,2026-01-27T22:34:43.187330+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2174
+POLKITD_OTHER,2026-01-27T22:34:45.766413+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.81 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,1002
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:47.058626+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,1014
+SYSTEMD-LOGIND_OTHER,2026-01-27T22:34:47.179132+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,1014
+POLKITD_OTHER,2026-01-27T22:34:47.235715+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.48, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,1002
+CRON_OTHER,2026-01-27T22:35:01.669941+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,3004
+CRON_OTHER,2026-01-27T22:35:01.683097+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,3004
+PKEXEC_OTHER,2026-01-27T22:35:35.201904+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,3057
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:35:56.612019+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:35:56.612020+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:35:56.612030+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:35:56.612032+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,1008
+POLKITD_OTHER,2026-01-28T17:35:57.199561+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,982
+POLKITD_OTHER,2026-01-28T17:35:57.211537+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,982
+POLKITD_OTHER,2026-01-28T17:35:57.589467+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,982
+POLKITD_OTHER,2026-01-28T17:35:57.625943+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,982
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:36:00.801920+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,1008
+POLKITD_OTHER,2026-01-28T17:36:06.525359+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.49 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,982
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:36:09.554304+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,1008
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T17:36:11.055207+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,2100
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T17:36:11.055341+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2313
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T17:36:11.069300+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2318
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T17:36:11.069562+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,2100
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T17:36:11.069761+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2321
+POLKITD_OTHER,2026-01-28T17:36:13.736080+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.84 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,982
+POLKITD_OTHER,2026-01-28T17:36:14.584143+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.49, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,982
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:36:14.640524+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T17:36:14.683648+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,1008
+PKEXEC_OTHER,2026-01-28T17:37:15.459663+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,3252
+DBUS-DAEMON_OTHER,2026-01-28T17:41:19.399661+00:00,Ubuntu,,OTHER,[system] Failed to activate service 'org.bluez': timed out (service_start_timeout=25000ms),linux_auth,dbus-daemon,836
+CRON_OTHER,2026-01-28T17:45:01.142528+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5550
+CRON_OTHER,2026-01-28T17:45:01.149207+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5550
+CRON_OTHER,2026-01-28T17:55:01.207873+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5576
+CRON_OTHER,2026-01-28T17:55:01.214133+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5576
+CRON_OTHER,2026-01-28T18:05:01.232957+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5731
+CRON_OTHER,2026-01-28T18:05:01.236535+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5731
+CRON_OTHER,2026-01-28T18:15:01.249640+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5743
+CRON_OTHER,2026-01-28T18:15:01.253710+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5743
+CRON_OTHER,2026-01-28T18:17:01.258667+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5749
+CRON_OTHER,2026-01-28T18:17:01.271172+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5749
+CRON_OTHER,2026-01-28T18:25:01.292137+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5760
+CRON_OTHER,2026-01-28T18:25:01.296129+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5760
+CRON_OTHER,2026-01-28T18:30:01.302883+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5766
+CRON_OTHER,2026-01-28T18:30:01.305940+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5766
+CRON_OTHER,2026-01-28T18:35:01.315351+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5776
+CRON_OTHER,2026-01-28T18:35:01.319433+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5776
+CRON_OTHER,2026-01-28T18:45:01.340695+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0),linux_auth,CRON,5798
+CRON_OTHER,2026-01-28T18:45:01.344219+00:00,Ubuntu,,OTHER,pam_unix(cron:session): session closed for user root,linux_auth,CRON,5798
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:50:08.257902+00:00,Ubuntu,,OTHER,Power key pressed short.,linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:50:08.266106+00:00,Ubuntu,,OTHER,The system will power off now!,linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:50:08.287154+00:00,Ubuntu,,OTHER,System is powering down.,linux_auth,systemd-logind,1008
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:04.196575+00:00,Ubuntu,,OTHER,New seat seat0.,linux_auth,systemd-logind,896
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:04.196576+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event0 (Power Button),linux_auth,systemd-logind,896
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:04.196577+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event1 (Sleep Button),linux_auth,systemd-logind,896
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:04.196578+00:00,Ubuntu,,OTHER,Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard),linux_auth,systemd-logind,896
+POLKITD_OTHER,2026-01-28T18:57:04.376664+00:00,Ubuntu,,OTHER,Loading rules from directory /etc/polkit-1/rules.d,linux_auth,polkitd,872
+POLKITD_OTHER,2026-01-28T18:57:04.388583+00:00,Ubuntu,,OTHER,Loading rules from directory /usr/share/polkit-1/rules.d,linux_auth,polkitd,872
+POLKITD_OTHER,2026-01-28T18:57:04.631862+00:00,Ubuntu,,OTHER,"Finished loading, compiling and executing 16 rules",linux_auth,polkitd,872
+POLKITD_OTHER,2026-01-28T18:57:04.659336+00:00,Ubuntu,,OTHER,Acquired the name org.freedesktop.PolicyKit1 on the system bus,linux_auth,polkitd,872
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:07.103396+00:00,Ubuntu,,OTHER,New session c1 of user gdm.,linux_auth,systemd-logind,896
+POLKITD_OTHER,2026-01-28T18:57:11.169567+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:c1 (system bus name :1.41 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,872
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:18.025784+00:00,Ubuntu,,OTHER,New session 2 of user vboxuser.,linux_auth,systemd-logind,896
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T18:57:19.657160+00:00,Ubuntu,,OTHER,The PKCS#11 component was already initialized,linux_auth,gnome-keyring-daemon,1957
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T18:57:19.657441+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2165
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T18:57:19.663604+00:00,Ubuntu,,OTHER,The Secret Service was already initialized,linux_auth,gnome-keyring-daemon,1957
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T18:57:19.663836+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2170
+GNOME-KEYRING-DAEMON_OTHER,2026-01-28T18:57:19.664111+00:00,Ubuntu,,OTHER,discover_other_daemon: 1,linux_auth,gnome-keyring-daemon,2174
+POLKITD_OTHER,2026-01-28T18:57:22.085239+00:00,Ubuntu,,OTHER,"Registered Authentication Agent for unix-session:2 (system bus name :1.84 [/usr/bin/gnome-shell], object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8)",linux_auth,polkitd,872
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:22.968096+00:00,Ubuntu,,OTHER,Session c1 logged out. Waiting for processes to exit.,linux_auth,systemd-logind,896
+POLKITD_OTHER,2026-01-28T18:57:22.969338+00:00,Ubuntu,,OTHER,"Unregistered Authentication Agent for unix-session:c1 (system bus name :1.41, object path /org/freedesktop/PolicyKit1/AuthenticationAgent, locale en_US.UTF-8) (disconnected from bus)",linux_auth,polkitd,872
+SYSTEMD-LOGIND_OTHER,2026-01-28T18:57:23.023803+00:00,Ubuntu,,OTHER,Removed session c1.,linux_auth,systemd-logind,896
+PKEXEC_OTHER,2026-01-28T18:58:08.388024+00:00,Ubuntu,,OTHER,vboxuser: Executing command [USER=root] [TTY=unknown] [CWD=/home/vboxuser] [COMMAND=/usr/lib/update-notifier/package-system-locked],linux_auth,pkexec,3239
