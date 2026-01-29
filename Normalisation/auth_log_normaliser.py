@@ -1,4 +1,6 @@
 import re
+import pandas as pd
+import csv
 from datetime import datetime
 from base_normaliser import BaseNormaliser
 
@@ -34,18 +36,26 @@ def normalise_lines(lines):
         matched = auth_log_regex.match(line)
         if not matched:
             continue
-    data = matched.groupdict()
-    event_type = event_classification(data["message"], data["service"])
+        data = matched.groupdict()
+        event_type = event_classification(data["message"], data["service"])
     
-    normalised.append({
-        "event_id": f"{data['service'].upper()}_{event_type.upper()}",
-        "event_timestamp": data['timestamp'],
-        "hostname": data['hostname'],
-        "ip_address": None, # Will be revisited later in development
-        "event_type:": event_type,
-        "message": data["message"],
-        "Source": "linux_auth",
-        "service": data['service'],
-        "pid" : data["pid"]
-        })
+        normalised.append({
+            "event_id": f"{data['service'].upper()}_{event_type.upper()}",
+            "event_timestamp": data['timestamp'],
+            "hostname": data['hostname'],
+            "ip_address": None, # Will be revisited later in development
+            "event_type:": event_type,
+            "message": data["message"],
+            "Source": "linux_auth",
+            "service": data['service'],
+            "pid" : data["pid"]
+            })
     return normalised
+
+ # Local testing script
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\Final-Year-Project\Normalisation\auth.log"
+with open(path, "r", encoding="utf-8") as f:
+    events = normalise_lines(f.readlines())
+    
+df = pd.DataFrame(events)
+df.to_csv("normalised_dataset.csv", index=False, quoting=csv.QUOTE_ALL, escapechar="\\")
