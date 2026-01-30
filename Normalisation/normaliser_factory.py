@@ -1,9 +1,11 @@
 from auth_log_normaliser import AuthLogNormaliser
+from web_access_normaliser import WebAccessNormaliser
 import os
 import pandas as pd
 
 normalisers = {
-    "linux_auth": AuthLogNormaliser()
+    "linux_auth": AuthLogNormaliser(),
+    "web_access": WebAccessNormaliser(),
     #More to be added in future
     }
 
@@ -13,8 +15,10 @@ def source_detection(file):
     
     if "auth" in name:
         return "linux_auth"
+    if "access" in name:
+        return "web_access"
     
-    return "Unknown"
+    return "unknown"
 
 def get_normaliser(file):
     source_type = source_detection(file)
@@ -28,11 +32,11 @@ def get_normaliser(file):
 
 
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\auth.log"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\access.log"
 filename = os.path.basename(path)
 # Dictionary of functional normalisers 
 
-with open(path, "r", encoding="utf-8") as f:
+with open(path, "r", encoding="utf-8", errors="replace") as f:
     lines = f.readlines()
 
 normaliser = get_normaliser(filename)
