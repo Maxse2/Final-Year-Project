@@ -1,5 +1,5 @@
 import re
-from base_normaliser import BaseNormaliser
+from Normalisation.base_normaliser import BaseNormaliser
 
 class WebAccessNormaliser(BaseNormaliser):
 
