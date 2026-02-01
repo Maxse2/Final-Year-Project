@@ -6,7 +6,7 @@ import pandas as pd
 normalisers = {
     "linux_auth": AuthLogNormaliser(),
     "web_access": WebAccessNormaliser(),
-    #More to be added in future
+    "windows_security": WindowsSecurityNormaliser(),
     }
 
 def source_detection(file):
@@ -17,6 +17,8 @@ def source_detection(file):
         return "linux_auth"
     if "access" in name:
         return "web_access"
+    if "windows" or "security" or "event" in name:
+        return "windows_security"
     
     return "unknown"
 
