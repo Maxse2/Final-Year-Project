@@ -1,5 +1,6 @@
 from Normalisation.auth_log_normaliser import AuthLogNormaliser
 from Normalisation.web_access_normaliser import WebAccessNormaliser
+from Normalisation.windows_security_normaliser import WindowsSecurityNormaliser
 import os
 import pandas as pd
 
@@ -31,23 +32,3 @@ def get_normaliser(file):
             )
     return normalisers[source_type]
 
-
-
-
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\access.log"
-filename = os.path.basename(path)
-
-''' #Test  Script
-with open(path, "r", encoding="utf-8", errors="replace") as f:
-    lines = f.readlines()
-
-normaliser = get_normaliser(filename)
-events = normaliser.normalise(lines)
-alerts = detect_bruteforce(events, threshold=5, window_minutes=5)
-
-
-print("Detected normaliser:", type(normaliser).__name__)
-print("Events parsed:", len(events))
-print("First event:", events[0] if events else "No events")
-df = pd.DataFrame(events)
-df.to_csv("Normalised_Data.csv", index=False, escapechar="\\")'''

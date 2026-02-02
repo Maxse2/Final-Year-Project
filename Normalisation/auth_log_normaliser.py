@@ -47,7 +47,7 @@ class AuthLogNormaliser(BaseNormaliser):
             ip = self.extract_ipv4(data['message'])
     
             normalised.append({
-                "event_id": f"{data['service'].upper()}_{event_type.upper()}",
+                "event_id": f"AUTH_{data['service'].upper()}_{event_type.upper()}",
                 "event_timestamp": data['timestamp'],
                 "hostname": data['hostname'],
                 "ip_address": ip,
