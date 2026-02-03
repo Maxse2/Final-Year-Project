@@ -1,0 +1,2 @@
+1 Implement normalised schema within windows event log normalisation script
+2 expand normalisation functionality for each normaliser ( particularly in terms of event classification )
