@@ -5,7 +5,7 @@ from Normalisation.web_access_normaliser import WebAccessNormaliser
 from Normalisation.normaliser_factory import get_normaliser
 from Correlation.auth_rules import detect_bruteforce
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\access.log"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\security_events.csv"
 filename = os.path.basename(path)
 
 with open(path, "r", encoding="utf-8", errors="replace") as f:

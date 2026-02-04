@@ -1,12 +1,9 @@
-# UNFINISHED
-# TO DO - Write normaliser function, properly integreate to factory/main
-
-
 import re
 import pandas as pd
-#add folder name back after testing
 from Normalisation.base_normaliser import BaseNormaliser
+from Normalisation.schema import make_event, validate_event
 import datetime
+import json
 
 
 class WindowsSecurityNormaliser(BaseNormaliser):
@@ -17,9 +14,8 @@ class WindowsSecurityNormaliser(BaseNormaliser):
     ip_regex = re.compile(r"Source Network Address:\s*(?P<ip>(?:\d{1,3}\.){3}\d{1,3})")
     
     user_patterns = [
-    re.compile(r"Account Name:\s*(?P<user>[^\r\n]+)"),
-    re.compile(r"Target User Name:\s*(?P<user>[^\r\n]+)"),
-    re.compile(r"Security ID:\s*(?P<user>[^\r\n]+)"),
+    re.compile(r"Target User Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
+    re.compile(r"Account Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
     ]
 
     # Uses IP Regex to determine the source IP of an event
@@ -30,7 +26,8 @@ class WindowsSecurityNormaliser(BaseNormaliser):
         if not match:
             return None
         return match.group("ip")
-    # Uses "user_patterns" regex list to search for a username/hostname
+   
+   # Uses "user_patterns" regex list to search for a username/hostname
     def extract_username(self,message):
         if not message:
             return None
@@ -60,49 +57,50 @@ class WindowsSecurityNormaliser(BaseNormaliser):
         normalised = []
         data = pd.read_csv(
         csv, 
-        skiprows=1, 
-        names=['keywords', 'timestamp', 'source', 'event_id', 'task_category', 'message'],
         quotechar='"', 
         on_bad_lines='skip', 
         encoding='utf-8')
-        
+        data.columns = data.columns.str.strip()
+        data = data.rename(columns={
+            "Date and Time": "timestamp",
+            "Source": "source",
+            "Event ID": "event_id",
+            "Task Category": "task_category",
+            "Unnamed: 5": "message",
+            })
+        print("CSV rows parsed by pandas:", len(data))
+        print("Missing event_id rows:", data["event_id"].isna().sum())
         data['timestamp'] = pd.to_datetime(data['timestamp'], dayfirst=True)
+        data['message'] = data['message'].replace(r'[\n\t\r]+', ' ', regex=True)
         datalist = data.to_dict("records")
-        for row in datalist:
-            event_type = self.event_classification(row["event_id"])
+        for index, row in enumerate(datalist):
+            try:
+                event_code = int(row["event_id"])
+            except (TypeError, ValueError):
+                continue
+            event_type = self.event_classification(event_code)
+            timestamp_dt = row["timestamp"].to_pydatetime()
+            if timestamp_dt.tzinfo is None:
+                timestamp_dt = timestamp_dt.replace(tzinfo=datetime.timezone.utc)
+            else:
+                timestamp_dt = timestamp_dt.astimezone(datetime.timezone.utc)
             message = row['message']
             ip = self.extract_ip(message)
-            normalised.append({
-                "event_type":row['event_id'],
-                "event_id":f"WIN_{event_type}",
-                "event_timestamp":row['timestamp'].isoformat(),
-                "source":self.source_name,
-                "message":message,
-                "ip_address":ip,
-                "username":self.extract_username(message)
-        })
-            
-            
+            event = make_event(
+                event_id=f"WIN_{event_code}_{index}",
+                event_timestamp=timestamp_dt,
+                hostname = str(row.get("source") or "").strip() or "windows_host",
+                ip_address=ip,
+                event_type=event_type,
+                message=message,
+                source=self.source_name,
+                raw=json.dumps(row, default=str),
+                )
+            event["event_code"] = event_code
+            event["username"] = self.extract_username(message)
+            event["task_category"] = row.get("task_category")
+            validate_event(event)
+            normalised.append(event)
+        print("Events output by normaliser:", len(normalised))
         return normalised
-
-
-# Temporary path to test file
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\security_events.csv"
-
-with open(path, "r", encoding="utf-8", errors="replace") as f:
-    lines = f.readlines()
-data = pd.read_csv(
-    path, 
-    skiprows=1, 
-    names=['keywords', 'timestamp', 'source', 'event_id', 'task_category', 'message'],
-    quotechar='"', 
-    on_bad_lines='skip', 
-    encoding='utf-8'
-)
-data['message'] = data['message'].replace(r'[\n\t\r]+', ' ', regex=True)
-eventid = data['event_id']
-data['timestamp'] = pd.to_datetime(data['timestamp'], dayfirst=True)
-records = data.to_dict("records")
-normaliser = WindowsSecurityNormaliser()
-rows = records[:80]
 
