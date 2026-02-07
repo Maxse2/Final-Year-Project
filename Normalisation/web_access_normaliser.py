@@ -2,7 +2,7 @@ import re
 from Normalisation.base_normaliser import BaseNormaliser
 from Normalisation.schema import make_event, validate_event
 from datetime import datetime, timezone
-
+#PROTECTED PATHS ARE TAILORED TO LOCAL TESTING AS OF NOW
 
 
 class WebAccessNormaliser(BaseNormaliser):
@@ -11,7 +11,9 @@ class WebAccessNormaliser(BaseNormaliser):
     
     # Regular Expression algorithm for parsing access logs 
     web_access_regex = re.compile(
-        r'^(?P<client>\S+)\s+\S+\s+\S+\s+'
+        r'^(?P<client>\S+)\s+'
+        r'(?P<ident>\S+)\s+'
+        r'(?P<authuser>\S+)\s+'
         r'\[(?P<timestamp>[^\]]+)\]\s+'
         r'"(?P<request>[^"]*)"\s+'
         r'(?P<status>\d{3})\s+(?P<size>\S+)'
@@ -42,6 +44,21 @@ class WebAccessNormaliser(BaseNormaliser):
             return "REDIRECT"
         return "OTHER"
     
+    def auth_event_classification(self,*,path,status,authuser):
+        if not path:
+            return None
+        protected_paths = ("/secure","/secure/") # Local testing paths
+        is_protected = path in protected_paths or path.startswith("/secure/")
+        if not is_protected:
+            return None
+        
+        if status in (401,403):
+            return "FAILED_LOGIN"
+        if status == 200:
+            if authuser and authuser not in ("-",""):
+                return "SUCCESSFUL_LOGIN"
+            return None
+        return None
     
     # Main normalisation function
     def normalise(self,lines):
@@ -55,10 +72,19 @@ class WebAccessNormaliser(BaseNormaliser):
                 continue
             # Variables prepared here for normalisation.
             data = matched.groupdict()
-            event_type = self.event_classification(data["status"])
+            authuser=data.get("authuser")
+            method,path,protocol = self.parse_request(data["request"])
+            status_int = int(data["status"])
+            auth_type = self.auth_event_classification(
+                path = path,
+                status = status_int,
+                authuser=authuser)
+            if auth_type is not None:
+                event_type = auth_type
+            else:
+                event_type = self.event_classification(data["status"])
             dtimestamp = self.parse_timestamp(data['timestamp'])
             hostname = "webserver"
-            method,path,protocol = self.parse_request(data["request"])
             # Uses make_event to generate a normalised log entry based on
             # the default schema
             event = make_event(
@@ -78,6 +104,9 @@ class WebAccessNormaliser(BaseNormaliser):
             event["size"]= None if data["size"] == "-" else int(data["size"])
             event["referrer"]=data.get("referrer")
             event["user_agent"]=data.get("user_agent")
+            if authuser and authuser not in ("-",""):
+                event["username"]=authuser
+                
             validate_event(event)
             normalised.append(event)
         return normalised

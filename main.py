@@ -3,9 +3,9 @@ import pandas as pd
 from Normalisation.auth_log_normaliser import AuthLogNormaliser
 from Normalisation.web_access_normaliser import WebAccessNormaliser
 from Normalisation.normaliser_factory import get_normaliser
-from Correlation.auth_rules import detect_bruteforce
+from Correlation.bruteforce import detect_bruteforce
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\security_events.csv"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\bruteforcetesting\access.log"
 filename = os.path.basename(path)
 
 with open(path, "r", encoding="utf-8", errors="replace") as f:
@@ -27,5 +27,10 @@ print("Last Event:",events[-1])
 total_lines = sum(1 for l in lines if l.strip())
 print("Non-empty lines:", total_lines)
 print("Skipped:", total_lines - len(events),"likely due to malformed entries.")
+
 normalisedevents = pd.DataFrame(events)
 normalisedevents.to_csv("Events.csv",escapechar="\\")
+alerts = detect_bruteforce(events,threshold=5,group_by="ip")
+normalisedalerts = pd.DataFrame(alerts)
+normalisedalerts.to_csv("Alerts.csv",escapechar="\\")
+print(detect_bruteforce(events,threshold=5,group_by="ip"))
