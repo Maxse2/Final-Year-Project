@@ -84,6 +84,13 @@ class WebAccessNormaliser(BaseNormaliser):
             else:
                 event_type = self.event_classification(data["status"])
             dtimestamp = self.parse_timestamp(data['timestamp'])
+            # Create a SOC-friendly message (raw remains the full line)
+            if event_type in ("FAILED_LOGIN", "SUCCESSFUL_LOGIN"):
+                user_part = f"user={authuser}" if authuser and authuser not in ("-", "") else "user=unknown"
+                message = f"Web auth {event_type.lower()}: {user_part} ip={data['client']} path={path} status={status_int}"
+            else:
+                message = f"Web request: ip={data['client']} {method} {path} -> {status_int}"
+
             hostname = "webserver"
             # Uses make_event to generate a normalised log entry based on
             # the default schema
@@ -93,7 +100,7 @@ class WebAccessNormaliser(BaseNormaliser):
                 hostname=hostname,
                 ip_address=data["client"],
                 event_type=event_type,
-                message=line,
+                message=message,
                 source=self.source_name,
                 raw=line,
                 )
