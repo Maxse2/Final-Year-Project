@@ -6,7 +6,7 @@ from Normalisation.normaliser_factory import get_normaliser
 from Correlation.bruteforce import detect_bruteforce
 from Correlation.suspicious_network_transition import detect_network_change
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\bruteforcetesting\access.log"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\nettransitiontesting\auth.log"
 filename = os.path.basename(path)
 
 with open(path, "r", encoding="utf-8", errors="replace") as f:
@@ -22,7 +22,6 @@ elif normaliser.source_name == "windows_security":
 
 print("Detected normaliser:", type(normaliser).__name__)
 print("Events parsed:", len(events))
-print("First raw line:", repr(lines[0]))
 print("First Event:",events[0])
 print("Last Event:",events[-1])
 total_lines = sum(1 for l in lines if l.strip())
@@ -30,9 +29,13 @@ print("Non-empty lines:", total_lines)
 print("Skipped:", total_lines - len(events),"likely due to malformed entries.")
 datapath=r"C:\Users\maxst\OneDrive\Desktop\Project Development\exported data"
 normalisationpath = os.path.join(datapath,"Events.csv")
-alertpath = os.path.join(datapath,"Alerts.csv")
+alertpath = os.path.join(datapath,"BruteforceAlerts.csv")
+alertpath2 = os.path.join(datapath,"NetTransitionAlerts.csv")
 normalisedevents = pd.DataFrame(events)
 normalisedevents.to_csv(normalisationpath,escapechar="\\")
-alerts = detect_network_change(events,group_by="username")
-normalisedalerts = pd.DataFrame(alerts)
-normalisedalerts.to_csv(alertpath,escapechar="\\")
+bruteforcealerts = detect_bruteforce(events,group_by="ip",threshold=3)
+normalised_bf_alerts = pd.DataFrame(bruteforcealerts)
+normalised_bf_alerts.to_csv(alertpath,escapechar="\\")
+net_transition_alerts = detect_network_change(events,group_by="username")
+normalised_nt_alerts = pd.DataFrame(net_transition_alerts)
+normalised_nt_alerts.to_csv(alertpath2,escapechar="\\")

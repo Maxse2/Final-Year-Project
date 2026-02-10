@@ -10,6 +10,9 @@ class AuthLogNormaliser(BaseNormaliser):
     # Regular Expression algorithms for parsing IPv4 addresses, auth.log files
     # and Service/PID from log entries
     ipv4_regex = re.compile(r'\b(?:\d{1,3}\.){3}\d{1,3}\b')
+    SSH_ACCEPTED_USER = re.compile(r"Accepted \S+ for (?P<user>\S+) from (?P<ip>(?:\d{1,3}\.){3}\d{1,3})")
+    SSH_FAILED_USER   = re.compile(r"Failed \S+ for (?P<user>\S+) from (?P<ip>(?:\d{1,3}\.){3}\d{1,3})")
+    SSH_INVALID_USER  = re.compile(r"Invalid user (?P<user>\S+) from (?P<ip>(?:\d{1,3}\.){3}\d{1,3})")
 
     auth_log_regex = re.compile(
         r'^(?P<timestamp>\d{4}-\d{2}-\d{2}T'
@@ -50,8 +53,8 @@ class AuthLogNormaliser(BaseNormaliser):
                 return "FAILED_LOGIN"
             if "accepted password" in msg:
                 return "SUCCESSFUL_LOGIN"
-        return "OTHER"
-
+        return "OTHER"        
+        
     # Extracts IPv4 addresses from message using pre-defined regex.
     def extract_ipv4(self,message):
         match = self.ipv4_regex.search(message)
@@ -75,6 +78,15 @@ class AuthLogNormaliser(BaseNormaliser):
             timestamp_dt= self.parse_auth_timestamp(data["timestamp"])
             service, pid = self.parse_service_and_pid(data["service_raw"])
             event_type = self.event_classification(data["message"],service)
+            extracted_user = None
+            if event_type == "SUCCESSFUL_LOGIN":
+                m = self.SSH_ACCEPTED_USER.search(data["message"])
+                if m:
+                    extracted_user=m.group("user")
+            elif event_type == "FAILED_LOGIN":
+                m = self.SSH_FAILED_USER.search(data["message"]) or self.SSH_INVALID_USER.search(data["message"])
+                if m:
+                    extracted_user=m.group("user")
             # Uses make_event to generate a normalised log entry based on
             # the default schema
             event = make_event(
@@ -89,6 +101,7 @@ class AuthLogNormaliser(BaseNormaliser):
                 )
             event["service"] = service
             event["pid"] =  pid
+            event["username"] = extracted_user
             validate_event(event)
             normalised.append(event)
         return normalised
