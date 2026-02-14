@@ -1,5 +1,5 @@
 from __future__ import annotations
-from dataclasses import dataclass
+from dataclasses import dataclass, asdict
 from datetime import timedelta
 from typing import Any, Dict, List, Optional
 

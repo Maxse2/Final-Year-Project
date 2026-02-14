@@ -35,30 +35,26 @@ class WebAccessNormaliser(BaseNormaliser):
         return dt.astimezone(timezone.utc)
     
     # Classifies events based on status code
-    def event_classification(self,status):
-        if status.startswith("4"):
-            return "CLIENT_ERROR"
-        if status.startswith("5"):
-            return "SERVER_ERROR"
-        if status.startswith("3"):
-            return "REDIRECT"
-        return "OTHER"
+    def classify_event(self, status, path=None, authuser=None):
+        protected_paths = ("/secure", "/secure/")
+        is_protected = path and (path in protected_paths or path.startswith("/secure/"))
     
-    def auth_event_classification(self,*,path,status,authuser):
-        if not path:
-            return None
-        protected_paths = ("/secure","/secure/") # Local testing paths
-        is_protected = path in protected_paths or path.startswith("/secure/")
-        if not is_protected:
-            return None
-        
-        if status in (401,403):
-            return "FAILED_LOGIN"
-        if status == 200:
-            if authuser and authuser not in ("-",""):
+        if is_protected:
+            if status in (401, 403):
+                return "FAILED_LOGIN"
+            if status == 200 and authuser and authuser not in ("-", ""):
                 return "SUCCESSFUL_LOGIN"
-            return None
-        return None
+
+
+        status_str = str(status)
+        if status_str.startswith("4"):
+            return "CLIENT_ERROR"
+        if status_str.startswith("5"):
+            return "SERVER_ERROR"
+        if status_str.startswith("3"):
+            return "REDIRECT"
+    
+        return "OTHER"
     
     # Main normalisation function
     def normalise(self,lines):
@@ -75,16 +71,8 @@ class WebAccessNormaliser(BaseNormaliser):
             authuser=data.get("authuser")
             method,path,protocol = self.parse_request(data["request"])
             status_int = int(data["status"])
-            auth_type = self.auth_event_classification(
-                path = path,
-                status = status_int,
-                authuser=authuser)
-            if auth_type is not None:
-                event_type = auth_type
-            else:
-                event_type = self.event_classification(data["status"])
+            event_type = self.classify_event(status_int, path, authuser)
             dtimestamp = self.parse_timestamp(data['timestamp'])
-            # Create a SOC-friendly message (raw remains the full line)
             if event_type in ("FAILED_LOGIN", "SUCCESSFUL_LOGIN"):
                 user_part = f"user={authuser}" if authuser and authuser not in ("-", "") else "user=unknown"
                 message = f"Web auth {event_type.lower()}: {user_part} ip={data['client']} path={path} status={status_int}"
