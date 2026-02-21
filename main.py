@@ -9,6 +9,7 @@ from Normalisation.web_access_normaliser import WebAccessNormaliser
 from Normalisation.normaliser_factory import get_normaliser
 from Correlation.bruteforce import detect_bruteforce
 from Correlation.suspicious_network_transition import detect_network_change
+from Correlation.password_spraying import detect_password_spray
 
 
 import datetime
@@ -34,7 +35,7 @@ def write_jsonl(records, path):
                 rec=asdict(rec)
             f.write(json.dumps(_json_safe(rec),ensure_ascii=False) + "\n")
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\bruteforcetesting\access.log"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\newtesting\security_events.csv"
 filename = os.path.basename(path)
 
 with open(path, "r", encoding="utf-8", errors="replace") as f:
@@ -59,10 +60,13 @@ datapath=r"C:\Users\maxst\OneDrive\Desktop\Project Development\exported data"
 jsonl_events_path = os.path.join(datapath, "Events.jsonl")
 jsonl_bf_path= os.path.join(datapath, "BruteforceAlerts.jsonl")
 jsonl_nt_path= os.path.join(datapath, "NetTransitionAlerts.jsonl")
+jsonl_ps_path= os.path.join(datapath, "PasswordSprayAlerts.jsonl")
 bruteforcealerts = detect_bruteforce(events,group_by="ip",threshold=3)
 net_transition_alerts = detect_network_change(events,group_by="username")
+pass_spray_alerts= detect_password_spray(events)
 write_jsonl(events, jsonl_events_path)
 write_jsonl(bruteforcealerts,jsonl_bf_path)
 write_jsonl(net_transition_alerts,jsonl_nt_path)
+write_jsonl(pass_spray_alerts,jsonl_ps_path)
 df = pd.DataFrame(events)
 df.to_csv("events.csv")

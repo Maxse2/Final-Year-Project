@@ -2,7 +2,7 @@ from __future__ import annotations
 from dataclasses import dataclass, asdict
 from datetime import timedelta
 from typing import Any, Dict, List, Optional
-
+import uuid
 
 @dataclass
 class BruteForceAlert:
@@ -11,7 +11,8 @@ class BruteForceAlert:
     end: Any                     
     key: str                       
     count: int                     
-    evidence: Dict[str, Any]        
+    evidence: Dict[str, Any]
+    alert_id: str
 
 def get_event_timestamp(event):
     return event["event_timestamp"]
@@ -57,7 +58,8 @@ def detect_bruteforce(
                             "threshold":threshold,
                             "window_seconds":int(window.total_seconds()),
                             "group_by":group_by,
-                            }))
+                            },
+                        alert_id = str(uuid.uuid4())))
                 start_idx=end_idx+1
                         
                         

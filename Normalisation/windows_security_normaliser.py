@@ -14,8 +14,10 @@ class WindowsSecurityNormaliser(BaseNormaliser):
     ip_regex = re.compile(r"Source Network Address:\s*(?P<ip>(?:\d{1,3}\.){3}\d{1,3})")
     
     user_patterns = [
-    re.compile(r"Target User Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
-    re.compile(r"Account Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
+        re.compile(r"Account For Which Logon Failed:\s*.*?Account Name:\s*(?P<user>[^\s]+)",
+        re.IGNORECASE),
+        re.compile(r"Target User Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
+        re.compile(r"Account Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
     ]
 
     # Uses IP Regex to determine the source IP of an event
@@ -60,13 +62,15 @@ class WindowsSecurityNormaliser(BaseNormaliser):
         quotechar='"', 
         on_bad_lines='skip', 
         encoding='utf-8')
+        print(data.columns.tolist())
+        print(data.iloc[0].to_dict())
         data.columns = data.columns.str.strip()
         data = data.rename(columns={
-            "Date and Time": "timestamp",
-            "Source": "source",
-            "Event ID": "event_id",
-            "Task Category": "task_category",
-            "Unnamed: 5": "message",
+            "Keywords": "timestamp",
+            "Date and Time": "provider",
+            "Source": "event_id",
+            "Event ID": "task_category",
+            "Task Category": "message",
             })
         print("CSV rows parsed by pandas:", len(data))
         print("Missing event_id rows:", data["event_id"].isna().sum())
@@ -89,7 +93,7 @@ class WindowsSecurityNormaliser(BaseNormaliser):
             event = make_event(
                 event_id=f"WIN_{event_code}_{index}",
                 event_timestamp=timestamp_dt,
-                hostname = str(row.get("source") or "").strip() or "windows_host",
+                hostname = "windows_host",
                 ip_address=ip,
                 event_type=event_type,
                 message=message,
@@ -99,6 +103,7 @@ class WindowsSecurityNormaliser(BaseNormaliser):
             event["event_code"] = event_code
             event["username"] = self.extract_username(message)
             event["task_category"] = row.get("task_category")
+            event["provider"] = row.get("provider")
             validate_event(event)
             normalised.append(event)
         print("Events output by normaliser:", len(normalised))

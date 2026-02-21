@@ -1,10 +1,9 @@
-#NOT IMPOSSIBLE TRAVEL - RENAME TO SOMETHING ELSE
-
 from __future__ import annotations
 from dataclasses import dataclass
 from datetime import timedelta
 from ipaddress import ip_address, ip_network
 from typing import Any, Dict, List, Optional, Literal
+import uuid
 
 @dataclass
 class SuspiciousTransitionAlert:
@@ -17,7 +16,8 @@ class SuspiciousTransitionAlert:
     prev_zone: str
     curr_ip: str
     curr_zone: str               
-    evidence: Dict[str, Any]     
+    evidence: Dict[str, Any]
+    alert_id: str
 
 
 
@@ -108,6 +108,7 @@ def detect_network_change(events,
                                 "delta_seconds":int(timedeltats.total_seconds()),
                                 "prev_event_id":prev_id,
                                 "curr_event_id":curr_id},
+                            alert_id = str(uuid.uuid4())
                             ))
     return alerts
                                 
