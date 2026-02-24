@@ -7,13 +7,18 @@ from Engine.baserule import BaseRule
 
 Zone = Literal["internal", "external", "unknown"]
 
+# A list of private network ranges that will count as "internal".
 private_ranges = [
     ip_network("10.0.0.0/8"),
     ip_network("172.16.0.0/12"),
     ip_network("192.168.0.0/16"),
 ]
 loopback = ip_network("127.0.0.0/8")
-
+"""
+Zone classification function. Will return "unknown" if a suitable IP is not given,
+"internal" if a loopback address or a value from the private range list is given
+and external if IP doesn't fit into any of those critera.
+"""
 def zone_classifier(ip):
     if not ip:
         return "unknown"
@@ -42,12 +47,20 @@ class SuspiciousNetworkTransitionRule(BaseRule):
 
     def __init__(self, *, window: timedelta = timedelta(minutes=2)):
         self.window = window
-
+    """
+    Main Correlation Function. Filters events by "SUCCESSFUL_LOGIN" event type and
+    ensures events have a timestamp. Uses the Zone Classification function to determine
+    the zone of each IP, and sorts by username. Uses a loop to examine each event and
+    determines whether a network transition has occured in or under a set timeframe.
+    If events meet these requirements, they are exported as a list.
+    """
     def run(self, events) -> List[Alert]:
+        #  "filtered" filters events by successful logins and ensures they have a timestamp.
         filtered = [e for e in events if e.get("event_type") == "SUCCESSFUL_LOGIN"]
         filtered = [e for e in filtered if e.get("event_timestamp") is not None]
         filtered.sort(key=get_event_timestamp)
         groups = {}
+        # For loop determines zone of each IP and keys by username. 
         for e in filtered:
             ip_addr = e.get("ip_address")
             if zone_classifier(ip_addr) == "unknown":
@@ -56,10 +69,13 @@ class SuspiciousNetworkTransitionRule(BaseRule):
             if not username:
                 continue
             groups.setdefault(str(username), []).append(e)
-            
+        
         alerts = []
+        # For loop sorts all events by timestamp.
         for username, user_events in groups.items():
             user_events.sort(key=get_event_timestamp)
+            # Nested loop creates evidence fields based on current values and those
+            # of the next event. Current and previous timestamp, IP and zone are created.
             for i in range(len(user_events) - 1):
                 prev_event = user_events[i]
                 curr_event = user_events[i + 1]
@@ -74,6 +90,8 @@ class SuspiciousNetworkTransitionRule(BaseRule):
                 if prev_zone == "unknown" or curr_zone == "unknown":
                     continue
                 delta = curr_ts - prev_ts
+                # Zone values are compared and if they differ in a time under the set window,
+                # an alert is created.
                 if prev_zone != curr_zone and delta <= self.window:
                     alerts.append(
                         Alert(

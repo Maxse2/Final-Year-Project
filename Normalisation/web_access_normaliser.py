@@ -56,7 +56,12 @@ class WebAccessNormaliser(BaseNormaliser):
     
         return "OTHER"
     
-    # Main normalisation function
+    """
+    Main Normalisation Function - takes access.log and splits into lines, and then matches
+    against regex algorithm. Lines are turned into a dictionary and used to create variables
+    for normalised fields. Normalised events are created from this framework and fed back
+    as a list of dictionaries.
+    """
     def normalise(self,lines):
         normalised = []
         for index,line in enumerate(lines):
@@ -78,7 +83,6 @@ class WebAccessNormaliser(BaseNormaliser):
                 message = f"Web auth {event_type.lower()}: {user_part} ip={data['client']} path={path} status={status_int}"
             else:
                 message = f"Web request: ip={data['client']} {method} {path} -> {status_int}"
-
             hostname = "webserver"
             # Uses make_event to generate a normalised log entry based on
             # the default schema

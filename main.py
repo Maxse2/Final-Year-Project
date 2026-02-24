@@ -37,7 +37,7 @@ def write_jsonl(records, path):
                 rec=asdict(rec)
             f.write(json.dumps(_json_safe(rec),ensure_ascii=False) + "\n")
 
-path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\bruteforcetesting\access.log"
+path = r"C:\Users\maxst\OneDrive\Desktop\Project Development\misc files\newtesting\security_events.csv"
 filename = os.path.basename(path)
 
 with open(path, "r", encoding="utf-8", errors="replace") as f:

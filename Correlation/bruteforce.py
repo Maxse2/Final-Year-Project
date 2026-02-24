@@ -15,12 +15,22 @@ class BruteForceRule(BaseRule):
         self.threshold = threshold
         self.window = window
         self.group_by = group_by
-
+    
+    """
+    Main Correlation Function. Uses sliding window logic to determine if enough
+    failed attempted have been made at authentication within a certain timeframe.
+    If this threshold is met, an alert is created and a list of dictionaries is returned
+    with each alert.
+    """
     def run(self, events):
+        # "failed" filters events by "FAILED_LOGIN" type and ensures they have a timestamp
         failed = [e for e in events if e.get("event_type") == "FAILED_LOGIN"]
         failed = [e for e in failed if e.get("event_timestamp") is not None]
         failed.sort(key=get_event_timestamp)
-        groups: Dict[str, List[dict]] = {}
+        groups = {}
+        # This loop sets a key dependant on what "group_by" is set as.
+        # Currently can be changed between IP and Username, but may need later
+        # iteration to ensure flexible and customisable filtering.
         for e in failed:
             if self.group_by == "ip":
                 key_value = e.get("ip_address")
@@ -32,13 +42,16 @@ class BruteForceRule(BaseRule):
                 continue
             groups.setdefault(str(key_value), []).append(e)
         alerts = []
+        # Start of sliding window logic. start_idx and end_idx are the start and
+        # end of the window. Checks for bruteforce events within the set window.
         for key, evs in groups.items():
             start_idx = 0
             for end_idx in range(len(evs)):
                 while evs[end_idx]["event_timestamp"] - evs[start_idx]["event_timestamp"] > self.window:
                     start_idx += 1
-
                 events_in_window = end_idx - start_idx + 1
+                # If the events found in the window meet or exceed the threshold,
+                # creates an alert. Alert will be returned as a list of dictionaries.
                 if events_in_window >= self.threshold:
                     alerts.append(
                         Alert(
@@ -58,5 +71,5 @@ class BruteForceRule(BaseRule):
                         )
                     )
                     start_idx = end_idx + 1
-
+                    
         return alerts

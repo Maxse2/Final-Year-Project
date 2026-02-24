@@ -27,12 +27,14 @@ class AuthLogNormaliser(BaseNormaliser):
 
     # Takes raw service entry and splits into Service and PID entries.
     def parse_service_and_pid(self, service_raw: str):
+        # Cleans raw service string to apply regex search.
         cleaned = service_raw.strip()
         if cleaned.startswith("(") and cleaned.endswith(")"):
             cleaned = cleaned[1:-1]
         m = self.service_pid_regex.match(cleaned)
         if not m:
             return cleaned, None
+        # Service entry is split into service and PID.
         service = m.group("service")
         pid = m.group("pid")
          # Returns both Service and PID,  unless PID doesn't exist.
@@ -60,7 +62,12 @@ class AuthLogNormaliser(BaseNormaliser):
         match = self.ipv4_regex.search(message)
         return match.group(0) if match else None
 
-    # Main normalisation function
+    """
+    Main Normalisation Function, takes data from auth.log and seperates into lines.
+    Matches against main regex and transforms into dictionary which is then used to create
+    variables for normalised fields. Variables are then fed into the normalised structure
+    and returned as an event - all events become a list of dictionaries and are returned.
+    """
     def normalise(self,lines):
         normalised = []
         
@@ -78,7 +85,7 @@ class AuthLogNormaliser(BaseNormaliser):
             timestamp_dt= self.parse_auth_timestamp(data["timestamp"])
             service, pid = self.parse_service_and_pid(data["service_raw"])
             event_type = self.event_classification(data["message"],service)
-            extracted_user = None
+            extracted_user = None # <--- this needs to be fixed
             if event_type == "SUCCESSFUL_LOGIN":
                 m = self.SSH_ACCEPTED_USER.search(data["message"])
                 if m:
