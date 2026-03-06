@@ -66,20 +66,14 @@ class WindowsSecurityNormaliser(BaseNormaliser):
     def normalise(self,csv):
         normalised = []
         data = pd.read_csv(
-        csv, 
+        csv,
+        header=0,
+        names=["keywords","timestamp","provider","event_id","task_category","message"],
         quotechar='"', 
         on_bad_lines='skip', 
-        encoding='utf-8')
+        encoding='utf-8',
+        index_col=False)
         data.columns = data.columns.str.strip()
-        # Columns seem to be misaligned by default
-        # and are realigned here
-        data = data.rename(columns={
-            "Keywords": "timestamp",
-            "Date and Time": "provider",
-            "Source": "event_id",
-            "Event ID": "task_category",
-            "Task Category": "message",
-            })
         data['timestamp'] = pd.to_datetime(data['timestamp'], dayfirst=True)
         data['message'] = data['message'].replace(r'[\n\t\r]+', ' ', regex=True)
         datalist = data.to_dict("records")
