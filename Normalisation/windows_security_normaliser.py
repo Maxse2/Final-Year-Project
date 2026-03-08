@@ -41,7 +41,10 @@ class WindowsSecurityNormaliser(BaseNormaliser):
                 user = m.group("user").strip()
                 if user in {"-", ""}:
                     return None
-                return user
+                if "\\" in user:
+                    user = user.split("\\")[-1]
+                    
+                return user.lower()
         return None
             
     # Classifies events into universal tags for normalisation
@@ -92,7 +95,7 @@ class WindowsSecurityNormaliser(BaseNormaliser):
             ip = self.extract_ip(message)
             # Events are created in the normalised structure here.
             event = make_event(
-                event_id=f"WIN_{event_code}_{index}",
+                event_id=f"WIN_{event_code}_{timestamp_dt.timestamp()}_{index}",
                 event_timestamp=timestamp_dt,
                 hostname = "windows_host",
                 ip_address=ip,
