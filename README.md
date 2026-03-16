@@ -55,15 +55,10 @@ Log File -> Log Ingestion -> Normalisation/Event Storage -> Correlation Engine/A
 
 
 | Component | Description |
-
 |-----------|-------------|
-
 | Ingestion | Takes uploaded files, determines what type of log they are, and passes them to the correct normalisation module. |
-
 | Normalisation | Receives ingested files and normalises them to fit a universal schema so that correlation rules can be applied. |
-
 | Correlation Engine | Takes normalised log data, runs against pre-set correlation rules then generates and stores alerts based on detected behaviour. |
-
 | Dashboard | Streamlit UI. Allows upload and deletion of files, and presents processed data for visualisation and filtering. |
 
 
