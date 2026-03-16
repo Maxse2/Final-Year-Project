@@ -2,8 +2,6 @@ import re
 from Normalisation.base_normaliser import BaseNormaliser
 from Normalisation.schema import make_event, validate_event
 from datetime import datetime, timezone
-#PROTECTED PATHS ARE TAILORED TO LOCAL TESTING AS OF NOW
-
 
 class WebAccessNormaliser(BaseNormaliser):
 

@@ -49,12 +49,16 @@ class AuthLogNormaliser(BaseNormaliser):
     def event_classification(self,message,service):
         msg = message.lower()
     
-        # Classifies password-related events
+        # Classifies logon-related events
         if service == "sshd":
             if "failed password" in msg:
-                return "FAILED_LOGIN"
+                return "FAILED_LOGIN" 
             if "accepted password" in msg:
                 return "SUCCESSFUL_LOGIN"
+            if "invalid user" in msg:
+                return "INVALID_USER_LOGON"
+            if "connection closed" in msg:
+                return "CONNECTION_CLOSED"
         return "OTHER"        
         
     # Extracts IPv4 addresses from message using pre-defined regex.
@@ -81,14 +85,14 @@ class AuthLogNormaliser(BaseNormaliser):
                 continue
             # Variables prepared here for normalisation.
             data = matched.groupdict()
-            ip = self.extract_ipv4(data['message'])
-            timestamp_dt= self.parse_auth_timestamp(data["timestamp"])
-            service, pid = self.parse_service_and_pid(data["service_raw"])
-            event_type = self.event_classification(data["message"],service)
-            extracted_user = None # <--- this needs to be fixed
+            ip = self.extract_ipv4(data['message']) # IP extracted from message using IP regex
+            timestamp_dt= self.parse_auth_timestamp(data["timestamp"]) # Timestamp transformed into Datetime object
+            service, pid = self.parse_service_and_pid(data["service_raw"]) # Service and PID extracted with regex
+            event_type = self.event_classification(data["message"],service) # Event type created from phrasing in message
+            extracted_user = None
             if event_type == "SUCCESSFUL_LOGIN":
-                m = self.SSH_ACCEPTED_USER.search(data["message"])
-                if m:
+                m = self.SSH_ACCEPTED_USER.search(data["message"]) # "SSH_ACCEPTED_USER" Regex algorithm used if event type is 
+                if m:                                              # a successful login, "SSH_FAILED_USER" is used if not
                     extracted_user=m.group("user")
             elif event_type == "FAILED_LOGIN":
                 m = self.SSH_FAILED_USER.search(data["message"]) or self.SSH_INVALID_USER.search(data["message"])

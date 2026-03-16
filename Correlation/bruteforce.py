@@ -9,7 +9,7 @@ def get_event_timestamp(event):
 
 class BruteForceRule(BaseRule):
     name = "Brute Force"
-    severity = "high"
+    severity = "low"
 
     def __init__(self, *, threshold: int = 5, window: timedelta = timedelta(minutes=2), group_by: str = "ip"):
         self.threshold = threshold

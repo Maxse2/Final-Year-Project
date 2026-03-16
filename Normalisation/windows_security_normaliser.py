@@ -16,11 +16,19 @@ class WindowsSecurityNormaliser(BaseNormaliser):
     
     # List of regex algorithms for extraction of usernames from messages.
     user_patterns = [
-        re.compile(r"Account For Which Logon Failed:\s*.*?Account Name:\s*(?P<user>[^\s]+)",
-        re.IGNORECASE),
-        re.compile(r"Target User Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
-        re.compile(r"Account Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)"),
-    ]
+        re.compile(
+            r"New Logon:\s*.*?Account Name:\s*(?P<user>[^\s]+)",
+            re.IGNORECASE
+        ),
+        re.compile(
+            r"Target User Name:\s*(?P<user>.*?)(?=\s+(?:Account Domain|Logon ID|Logon Type|Failure Information|Caller Computer Name|Source Network Address|Process Name):|$)",
+            re.IGNORECASE
+        ),
+        re.compile(
+            r"Account For Which Logon Failed:\s*.*?Account Name:\s*(?P<user>[^\s]+)",
+            re.IGNORECASE
+        ),
+]
 
     # Uses IP Regex to determine the source IP of an event
     def extract_ip(self,message):
@@ -40,7 +48,7 @@ class WindowsSecurityNormaliser(BaseNormaliser):
             if m:
                 user = m.group("user").strip()
                 if user in {"-", ""}:
-                    return None
+                    continue
                 if "\\" in user:
                     user = user.split("\\")[-1]
                     
@@ -54,6 +62,10 @@ class WindowsSecurityNormaliser(BaseNormaliser):
             4625: "FAILED_LOGIN",
             4624: "SUCCESSFUL_LOGIN",
             4740: "ACCOUNT_LOCKED",
+            4720: "USER_CREATED",
+            4598: "SCHEDULED_TASK_CREATED",
+            7045: "SERVICE_INSTALLED",
+            1102: "LOG_CLEARED",
             }
         if eventid in classifications:
             return classifications[eventid]

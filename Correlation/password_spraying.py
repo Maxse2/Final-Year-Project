@@ -8,7 +8,7 @@ class PasswordSprayRule(BaseRule):
     name = "Password Spray"
     severity = "high"
 
-    def __init__(self, *, window: timedelta = timedelta(minutes=10), min_unique_users: int = 2, min_total_attempts: int = 2):
+    def __init__(self, *, window: timedelta = timedelta(minutes=10), min_unique_users: int = 4, min_total_attempts: int = 2):
         self.window = window
         self.min_unique_users = min_unique_users
         self.min_total_attempts = min_total_attempts

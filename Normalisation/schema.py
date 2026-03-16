@@ -9,7 +9,7 @@ REQUIRED_KEYS = {
     "event_type",
     "source",
 }
-
+# All normalised events must include the following fields.
 @dataclass(frozen=True)
 class NormalisedEvent:
     event_id: str
@@ -32,7 +32,8 @@ class NormalisedEvent:
             "source":self.source,
             "raw":self.raw,
             }
-    
+
+# Events are made and returned as a dictionary using this function
 def make_event(
     *,
     event_id:str,

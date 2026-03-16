@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+# Base Structure for normaliser classes
 class BaseNormaliser(ABC):
     source_name = "unknown"
     

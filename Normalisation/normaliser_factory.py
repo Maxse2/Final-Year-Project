@@ -3,15 +3,15 @@ from Normalisation.web_access_normaliser import WebAccessNormaliser
 from Normalisation.windows_security_normaliser import WindowsSecurityNormaliser
 import os
 import pandas as pd
-
+# Normalisers that are currently functional within the system.
+# If more are added, they must be entered onto this dictionary.
 normalisers = {
     "linux_auth": AuthLogNormaliser(),
     "web_access": WebAccessNormaliser(),
     "windows_security": WindowsSecurityNormaliser(),
     }
-
+# Detects source based on filenames.
 def source_detection(file):
-    # FILE NAME WILL LATER COME FROM FLASK. NO OS MODULE NEEDED IN FINAL PRODUCT.
     name = file.lower()
     
     if "auth" in name:
@@ -22,7 +22,7 @@ def source_detection(file):
         return "windows_security"
     
     return "unknown"
-
+# Defines a normaliser module to use on a given file.
 def get_normaliser(file):
     source_type = source_detection(file)
     
