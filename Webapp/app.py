@@ -1,4 +1,5 @@
 import streamlit as st
+import time
 from bson import ObjectId
 import os
 import sys
@@ -52,11 +53,17 @@ if page == "Dashboard":
         normaliser = get_normaliser(uploaded_file.name)                             # Entire file
         
         if normaliser.source_name in ("linux_auth", "web_access"):
+            start_norm = time.time()
             events = normaliser.normalise(lines)
+            end_norm = time.time()
+            norm_time = end_norm - start_norm
 
         elif normaliser.source_name == "windows_security":
             uploaded_file.seek(0)
+            start_norm = time.time()
             events = normaliser.normalise(uploaded_file)
+            end_norm = time.time()
+            norm_time = end_norm - start_norm
         
         engine = RuleEngine([
             BruteForceRule(),
@@ -64,7 +71,10 @@ if page == "Dashboard":
             SuspiciousNetworkTransitionRule()
         ])
         # Correlation rule engine is run here to find alerts within given data. Ingestion ID is important in case user wants to delete an upload.
+        start_corr = time.time()
         alerts = engine.run(events)
+        end_corr = time.time()
+        corr_time = end_corr - start_corr
         ensure_indexes()
         ingestion_id=create_ingestion(
             filename=uploaded_file.name,
@@ -75,7 +85,8 @@ if page == "Dashboard":
         # Events and Alerts uploaded to Mongo here
         insert_events(ingestion_id,events)
         insert_alerts(ingestion_id,alerts)
-        st.success(f"Processed {uploaded_file.name}")
+        time_taken = norm_time + corr_time
+        st.success(f"Processed {uploaded_file.name}. Time: {time_taken:.4f}")
         # Write lines display relevant metrics for user convenience.
         st.write("Events stored:",len(events))
         st.write("Alerts stored:",len(alerts))
