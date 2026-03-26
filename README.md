@@ -1,4 +1,4 @@
-# \# LogView - A Log Analysis and Correlation Engine for Security Event Detection
+# LogView - A Log Analysis and Correlation Engine for Security Event Detection
 
 
 
@@ -16,7 +16,7 @@ This project was developed as a part of a final-year undergraduate project in Cy
 
 
 
-### \## Key Features
+## Key Features
 
 * Log Ingestion and Storage using **MongoDB**
 * Log Normalisation across several formats
@@ -26,7 +26,7 @@ This project was developed as a part of a final-year undergraduate project in Cy
 
 
 
-### \## Supported Log Types
+## Supported Log Types
 
 * Windows 11 Security Event Logs
 * Linux Auth Logs (auth.log)
@@ -34,7 +34,7 @@ This project was developed as a part of a final-year undergraduate project in Cy
 
 
 
-### \## Correlation Rules
+## Correlation Rules
 
 * Brute Force Detection
 * Password Spraying Detection
@@ -42,7 +42,7 @@ This project was developed as a part of a final-year undergraduate project in Cy
 
 
 
-## \## System Architecture
+## System Architecture
 
 
 
@@ -50,25 +50,20 @@ Log File -> Log Ingestion -> Normalisation/Event Storage -> Correlation Engine/A
 
 
 
-## \### System Components
+### System Components
 
 
 
 | Component | Description |
-
 |-----------|-------------|
-
 | Ingestion | Takes uploaded files, determines what type of log they are, and passes them to the correct normalisation module. |
-
 | Normalisation | Receives ingested files and normalises them to fit a universal schema so that correlation rules can be applied. |
-
 | Correlation Engine | Takes normalised log data, runs against pre-set correlation rules then generates and stores alerts based on detected behaviour. |
-
 | Dashboard | Streamlit UI. Allows upload and deletion of files, and presents processed data for visualisation and filtering. |
 
 
 
-## \### Technologies Used
+### Technologies Used
 
 * Python
 * Streamlit
@@ -78,11 +73,11 @@ Log File -> Log Ingestion -> Normalisation/Event Storage -> Correlation Engine/A
 
 
 
-## \## Installation
+## Installation
 
 
 
-### \### Clone Repository
+### Clone Repository
 
 ```
 
@@ -94,7 +89,7 @@ cd Final-Year-Project
 
 
 
-### \### Install Dependencies
+### Install Dependencies
 
 ```
 
@@ -120,7 +115,7 @@ net start mongodb
 
 
 
-\### Run Application
+### Run Application
 
 (with /Final-Year-Project/Webapp open in terminal)
 
