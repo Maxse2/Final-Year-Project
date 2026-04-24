@@ -117,13 +117,7 @@ net start mongodb
 
 ### Run Application
 
-(with /Final-Year-Project/Webapp open in terminal)
-
-```
-
-python -m streamlit run app.py
-
-```
+Start application with run_app.bat - a browser window will open with the web-app running locally.
 
 
 
