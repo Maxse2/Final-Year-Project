@@ -20,6 +20,8 @@ def source_detection(file):
         return "web_access"
     if "windows" or "security" or "event" in name:
         return "windows_security"
+    else:
+        raise ValueError("Unsupported Log Type")
     
     return "unknown"
 # Defines a normaliser module to use on a given file.

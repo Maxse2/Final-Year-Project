@@ -50,7 +50,10 @@ if page == "Dashboard":
         st.write("File uploaded:", uploaded_file.name)
         
         lines = uploaded_file.read().decode("utf-8", errors="replace").splitlines() # Auth and Apache normalisers take lines instead of the 
-        normaliser = get_normaliser(uploaded_file.name)                             # Entire file
+        if not lines:                                                               # entire file
+            st.error("Uploaded file is empty.")
+            st.stop()
+        normaliser = get_normaliser(uploaded_file.name)                             
         
         if normaliser.source_name in ("linux_auth", "web_access"):
             start_norm = time.time()
